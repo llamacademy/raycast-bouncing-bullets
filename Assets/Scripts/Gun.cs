@@ -43,7 +43,7 @@ public class Gun : MonoBehaviour
             }
             else
             {
-                StartCoroutine(SpawnTrail(trail, direction * 100, Vector3.zero, BounceDistance, false));
+                StartCoroutine(SpawnTrail(trail, BulletSpawnPoint.position + direction * 100, Vector3.zero, BounceDistance, false));
             }
 
             LastShootTime = Time.time;
@@ -90,7 +90,7 @@ public class Gun : MonoBehaviour
                 {
                     yield return StartCoroutine(SpawnTrail(
                         Trail,
-                        bounceDirection * BounceDistance,
+                        HitPoint + bounceDirection * BounceDistance,
                         Vector3.zero,
                         0,
                         false
